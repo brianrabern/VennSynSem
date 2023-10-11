@@ -1,14 +1,28 @@
 from shapely.geometry import Polygon
+from core.regions import R
+from core.syntax import (
+    form,
+    inter,
+    union,
+    comp,
+    destroy,
+    save,
+    is_wellformed_diagram,
+    is_wellformed_region,
+)
+
 
 class Model:
     def __init__(self, universe, interpretation):
         self.universe = universe
         self.interpretation = interpretation
 
+
 def is_region_arr(input):
     return not (is_wellformed_diagram(input) or is_wellformed_region(input))
 
-# compositional semantics 
+
+# compositional semantics
 def sem(input):
     if input == R:
         return lambda M: M.universe
@@ -29,6 +43,7 @@ def sem(input):
     elif is_region_arr(input):
         return lambda M: set().union(*(sem(child)(M) for child in input))
     # composition via functional application
-    else:       
-       return lambda M: sem(input[0])(M)(*[sem(child)(M) for child in input[1:]])
-
+    else:
+        return lambda M: sem(input[0])(M)(
+            *[sem(child)(M) for child in input[1:]]
+        )  # noqa
