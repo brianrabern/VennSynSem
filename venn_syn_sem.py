@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Path, PathPatch
 import random
 import copy
+from venn_syntax import *
+from venn_semantics import *
+from venn_renderer import *
+
 
 # the plane (or a finite square of it)
 R = Polygon([(-3, -3), (-3, 5), (5, 5), (5, -3)])
@@ -29,7 +33,8 @@ labels = {
     A6: '$A_6$',
 }
 
-
+render_venn(form(A1,A2,A3))
+input("Press Enter to close the plot...")
 
 def eval(diagram, model):
     syntax_output = syn(diagram)
