@@ -12,3 +12,12 @@ In order to represent regions and points, and various operations on them, we wil
 
 See Jupyter notebook:
 [https://brianrabern.github.io/VennSynSem/index.html](https://brianrabern.github.io/VennSynSem/index.html)
+
+
+@article{PickelRabern-PICACS,
+	author = {Bryan Pickel and Brian Rabern},
+	journal = {Linguistics and Philosophy},
+	title = {A Compositional Semantics for Venn Diagrams},
+	year = {forthcoming}
+}
+https://philpapers.org/rec/PICACS
